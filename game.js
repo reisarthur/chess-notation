@@ -13,18 +13,30 @@ $("#btn-squarenames").click(function () {
       })
 });
 
+$("#btn-pieces").click(function () {
+  $(this).text(function(i, text){
+    if (text === "Hide pieces") {
+      $(".chess-square").css('background-size','0,0');
+      return "Show pieces";
+    } else {
+      $(".chess-square").css('background-size','contain');
+      return "Hide pieces";
+    }
+  })
+});
+
 $("#btn-reverse").click(function () {
-    $(this).text(function(i, text){
-          if (text === "White on bottom") {
-            $(".chess-board").css('flex-direction','column');
-            $(".chess-row").css('flex-direction','row');
-            return "Black on bottom";
-          } else {
-            $(".chess-board").css('flex-direction','column-reverse');
-            $(".chess-row").css('flex-direction','row-reverse');
-            return "White on bottom";
-          }
-      })
+  $(this).text(function(i, text){
+    if (text === "White on bottom") {
+      $(".chess-board").css('flex-direction','column');
+      $(".chess-row").css('flex-direction','row');
+      return "Black on bottom";
+    } else {
+      $(".chess-board").css('flex-direction','column-reverse');
+      $(".chess-row").css('flex-direction','row-reverse');
+      return "White on bottom";
+    }
+  })
 });
 
 function randomSquare() {

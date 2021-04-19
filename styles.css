@@ -80,6 +80,8 @@ h3 {
   width: 12.5%;
   height: 0;
   padding-bottom: 12.5%;
+
+  background-size: contain;
 }
 
 .dark {
@@ -117,4 +119,42 @@ h3 {
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+#a1, #h1 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wr.png");
+}
+#b1, #g1 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wn.png");
+}
+#c1, #f1 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wb.png");
+}
+#d1 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wq.png");
+}
+#e1 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wk.png");
+}
+#a2, #b2, #c2, #d2, #e2, #f2, #g2, #h2  {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wp.png");
+}
+
+#a7, #b7, #c7, #d7, #e7, #f7, #g7, #h7  {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bp.png");
+}
+#a8, #h8 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/br.png");
+}
+#b8, #g8 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bn.png");
+}
+#c8, #f8 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bb.png");
+}
+#e8 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bq.png");
+}
+#d8 {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bk.png");
 }
