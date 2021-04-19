@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Chess Notation Training</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="header">
+    <!-- <h1>Training Chess Notation</h1> -->
+  </div>
+  <div class="main">
+
+    <div class="sidebar-left">
+      <h1>Chess Notation Training</h1>
+      <p>The Algebraic Notation is the standard method for recording and describing moves in a game of chess.</p>
+      <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)" target="_blank" class="myButton" id="btn-wiki">Wikipedia Article</a>
+      <div class="setting-buttons">
+        <h3>Settings:</h3>
+        <a href="#" class="myButton" id="btn-squarenames">Hide square names</a>
+        <a href="#" class="myButton" id="btn-reverse">Black on bottom</a>
+      </div>
+    </div>
+
+    <div class="chess-board">
+      <div class="chess-row" id="r8">
+        <div class="chess-square light" id="a8">
+          <span class="notation">a8</span>
+        </div>
+        <div class="chess-square dark" id="b8">
+          <span class="notation">b8</span>
+        </div>
+        <div class="chess-square light" id="c8">
+          <span class="notation">c8</span>
+        </div>
+        <div class="chess-square dark" id="d8">
+          <span class="notation">d8</span>
+        </div>
+        <div class="chess-square light" id="e8">
+          <span class="notation">e8</span>
+        </div>
+        <div class="chess-square dark" id="f8">
+          <span class="notation">f8</span>
+        </div>
+        <div class="chess-square light" id="g8">
+          <span class="notation">g8</span>
+        </div>
+        <div class="chess-square dark" id="h8">
+          <span class="notation">h8</span>
+        </div>
+      </div>
+
+      <div class="chess-row" id="r7">
+        <div class="chess-square dark" id="a7">
+          <span class="notation">a7</span>
+        </div>
+        <div class="chess-square light" id="b7">
+          <span class="notation">b7</span>
+        </div>
+        <div class="chess-square dark" id="c7">
+          <span class="notation">c7</span>
+        </div>
+        <div class="chess-square light" id="d7">
+          <span class="notation">d7</span>
+        </div>
+        <div class="chess-square dark" id="e7">
+          <span class="notation">e7</span>
+        </div>
+        <div class="chess-square light" id="f7">
+          <span class="notation">f7</span>
+        </div>
+        <div class="chess-square dark" id="g7">
+          <span class="notation">g7</span>
+        </div>
+        <div class="chess-square light" id="h7">
+          <span class="notation">h7</span>
+        </div>
+      </div>
+
+      <div class="chess-row" id="r6">
+        <div class="chess-square light" id="a6">
+          <span class="notation">a6</span>
+        </div>
+        <div class="chess-square dark" id="b6">
+          <span class="notation">b6</span>
+        </div>
+        <div class="chess-square light" id="c6">
+          <span class="notation">c6</span>
+        </div>
+        <div class="chess-square dark" id="d6">
+          <span class="notation">d6</span>
+        </div>
+        <div class="chess-square light" id="e6">
+          <span class="notation">e6</span>
+        </div>
+        <div class="chess-square dark" id="f6">
+          <span class="notation">f6</span>
+        </div>
+        <div class="chess-square light" id="g6">
+          <span class="notation">g6</span>
+        </div>
+        <div class="chess-square dark" id="h6">
+          <span class="notation">h6</span>
+        </div>
+      </div>
+
+      <div class="chess-row" id="r5">
+        <div class="chess-square dark" id="a5">
+          <span class="notation">a5</span>
+        </div>
+        <div class="chess-square light" id="b5">
+          <span class="notation">b5</span>
+        </div>
+        <div class="chess-square dark" id="c5">
+          <span class="notation">c5</span>
+        </div>
+        <div class="chess-square light" id="d5">
+          <span class="notation">d5</span>
+        </div>
+        <div class="chess-square dark" id="e5">
+          <span class="notation">e5</span>
+        </div>
+        <div class="chess-square light" id="f5">
+          <span class="notation">f5</span>
+        </div>
+        <div class="chess-square dark" id="g5">
+          <span class="notation">g5</span>
+        </div>
+        <div class="chess-square light" id="h5">
+          <span class="notation">h5</span>
+        </div>
+      </div>
+
+      <div class="chess-row" id="r4">
+        <div class="chess-square light" id="a4">
+          <span class="notation">a4</span>
+        </div>
+        <div class="chess-square dark" id="b4">
+          <span class="notation">b4</span>
+        </div>
+        <div class="chess-square light" id="c4">
+          <span class="notation">c4</span>
+        </div>
+        <div class="chess-square dark" id="d4">
+          <span class="notation">d4</span>
+        </div>
+        <div class="chess-square light" id="e4">
+          <span class="notation">e4</span>
+        </div>
+        <div class="chess-square dark" id="f4">
+          <span class="notation">f4</span>
+        </div>
+        <div class="chess-square light" id="g4">
+          <span class="notation">g4</span>
+        </div>
+        <div class="chess-square dark" id="h4">
+          <span class="notation">h4</span>
+        </div>
+      </div>
+
+      <div class="chess-row" id="r3">
+        <div class="chess-square dark" id="a3">
+          <span class="notation">a3</span>
+        </div>
+        <div class="chess-square light" id="b3">
+          <span class="notation">b3</span>
+        </div>
+        <div class="chess-square dark" id="c3">
+          <span class="notation">c3</span>
+        </div>
+        <div class="chess-square light" id="d3">
+          <span class="notation">d3</span>
+        </div>
+        <div class="chess-square dark" id="e3">
+          <span class="notation">e3</span>
+        </div>
+        <div class="chess-square light" id="f3">
+          <span class="notation">f3</span>
+        </div>
+        <div class="chess-square dark" id="g3">
+          <span class="notation">g3</span>
+        </div>
+        <div class="chess-square light" id="h3">
+          <span class="notation">h3</span>
+        </div>
+      </div>
+
+      <div class="chess-row" id="r2">
+        <div class="chess-square light" id="a2">
+          <span class="notation">a2</span>
+        </div>
+        <div class="chess-square dark" id="b2">
+          <span class="notation">b2</span>
+        </div>
+        <div class="chess-square light" id="c2">
+          <span class="notation">c2</span>
+        </div>
+        <div class="chess-square dark" id="d2">
+          <span class="notation">d2</span>
+        </div>
+        <div class="chess-square light" id="e2">
+          <span class="notation">e2</span>
+        </div>
+        <div class="chess-square dark" id="f2">
+          <span class="notation">f2</span>
+        </div>
+        <div class="chess-square light" id="g2">
+          <span class="notation">g2</span>
+        </div>
+        <div class="chess-square dark" id="h2">
+          <span class="notation">h2</span>
+        </div>
+      </div>
+
+      <div class="chess-row" id="r1">
+        <div class="chess-square dark" id="a1">
+          <span class="notation">a1</span>
+        </div>
+        <div class="chess-square light" id="b1">
+          <span class="notation">b1</span>
+        </div>
+        <div class="chess-square dark" id="c1">
+          <span class="notation">c1</span>
+        </div>
+        <div class="chess-square light" id="d1">
+          <span class="notation">d1</span>
+        </div>
+        <div class="chess-square dark" id="e1">
+          <span class="notation">e1</span>
+        </div>
+        <div class="chess-square light" id="f1">
+          <span class="notation">f1</span>
+        </div>
+        <div class="chess-square dark" id="g1">
+          <span class="notation">g1</span>
+        </div>
+        <div class="chess-square light" id="h1">
+          <span class="notation">h1</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-right">
+      <h3>Random:</h3>
+      <p id="square-random">Click here to start</p>
+      <h3>Clicked:</h3>
+      <p id="square-clicked"></p>
+    </div>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="game.js" charset="utf-8"></script>
+</body>
+
+<footer>
+  Hope you enjoy! Share with your fellows.<br>Created by <a href="https://github.com/reisarthur/cv" target="blank">reisarthur</a>, 2021.
+</footer>
+</html>
