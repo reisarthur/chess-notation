@@ -13,15 +13,10 @@ a {
   color: white;
 }
 
-.header {
-  font-size: 120%;
-  margin: 2em;
-}
-
 .main {
   display: flex;
   justify-content: center;
-  margin: 3% 0;
+  margin: 2% 0;
 }
 
 footer {
@@ -30,17 +25,19 @@ footer {
 
 .notation {
   color: #3F3E3A;
+  font-size: 85%;
+  margin: 3px;
 }
 
 .sidebar-left {
-  font-style: italic;
-  margin: 4%;
+  /* font-style: italic; */
+  margin: 0 2%;
   width: 20%;
 }
 
 .sidebar-right {
-  font-style: italic;
-  margin: 4%;
+  /* font-style: italic; */
+  margin: 0 2%;
   width: 20%;
 }
 
@@ -52,8 +49,15 @@ h3 {
   margin: 1em 0 0.1em;
 }
 
-.sidebar-right p {
+.sidebar-right span {
+  justify-content: center;
   margin: 0;
+}
+
+.sidebar-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .chess-board {
@@ -65,7 +69,7 @@ h3 {
   justify-content: center;
   flex-direction: column;
   /* flex-shrink: 0; */
-  width: 40%;
+  width: 50%;
 }
 
 .chess-row {
@@ -80,7 +84,7 @@ h3 {
   width: 12.5%;
   height: 0;
   padding-bottom: 12.5%;
-
+  text-align: left;
   background-size: contain;
 }
 
@@ -91,10 +95,27 @@ h3 {
   background-color: #F0D9B5;
 }
 
+#img-reset {
+  width: 40px;
+  fill: red !important;
+}
+#img-reset path {
+  fill: blue !important;
+}
+#img-reset:hover {
+  fill: #B58863;
+}
+
+.img-anwer {
+  width: 1em;
+}
+
 .hidden {
   visibility: hidden;
 }
 
+
+/* Buttons */
 .myButton {
 	box-shadow:inset 0 1px 0 0 #ffffff;
 	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
@@ -121,6 +142,80 @@ h3 {
 	top:1px;
 }
 
+/* Timer */
+.base-timer {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+.base-timer__path-remaining.red {
+  color: red;
+}
+.base-timer__label {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+/* Button Play */
+.button-play-stop {
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 45px;
+  margin: 10px;
+
+  border-color: transparent transparent transparent #F0D9B5;
+  transition: 100ms all ease;
+  cursor: pointer;
+
+  /* play state */
+  border-style: solid;
+  border-width: 27px 0 27px 45px;
+}
+.button-play-stop.paused {
+  border-style: double;
+  border-width: 0px 0 0px 45px;
+}
+.button-play-stop:hover {
+  border-color: transparent transparent transparent #B58863;
+}
+
+/* Pieces */
 #a1, #h1 {
   background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wr.png");
 }

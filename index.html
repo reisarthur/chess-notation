@@ -8,22 +8,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- <link rel="icon" type="image/png" href="https://www.chess.com/bundles/web/favicons/favicon-32x32.c2a8280d.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.chess.com/bundles/web/favicons/favicon-16x16.31f99381.png" sizes="16x16"> -->
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wp.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wn.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wb.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wr.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wq.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wk.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bp.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bn.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bb.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/br.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bq.png" as="image">
+  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bk.png" as="image">
+  <link rel="preload" href="images/wrong.svg" as="image">
+  <link rel="preload" href="images/right.svg" as="image">
+  <!-- <link rel="preload" href="sounds/wrong.mp3" as="audio">
+  <link rel="preload" href="sounds/right.mp3" as="audio"> -->
 </head>
 
 <body>
   <div class="header">
-    <!-- <h1>Training Chess Notation</h1> -->
+
   </div>
   <div class="main">
 
     <div class="sidebar-left">
-      <h1>Chess Notation Training</h1>
+      <h1 id="title">Chess Notation Training</h1>
       <p>The Algebraic Notation is the standard method for recording and describing moves in a game of chess.</p>
       <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)" target="_blank" class="myButton" id="btn-wiki">Wikipedia Article</a>
+      <p>Find the max number of right squares before the time runs out and <b>become a pro</b> chess player.</p>
       <div class="setting-buttons">
         <h3>Settings:</h3>
         <a href="#" class="myButton" id="btn-squarenames">Hide square names</a>
         <a href="#" class="myButton" id="btn-reverse">Black on bottom</a>
+        <a href="#" class="myButton" id="btn-sounds">Disable sounds</a>
         <a href="#" class="myButton" id="btn-pieces">Hide pieces</a>
       </div>
     </div>
@@ -247,10 +268,19 @@
     </div>
 
     <div class="sidebar-right">
-      <h3>Random:</h3>
-      <p id="square-random">Click here to start</p>
+      <div class="sidebar-timer">
+        <div id="timer"></div>
+        <button class="button-play-stop" name="button-play"></button>
+        <!-- <img id="img-reset" src="images/reset.svg" alt="Reset"> -->
+      </div>
+      <h3>Next:</h3>
+      <span id="square-random">-</span>
       <h3>Clicked:</h3>
-      <p id="square-clicked"></p>
+      <img class="img-anwer hidden" id="img-answer-right" src="images/right.svg" alt="Right Answer!">
+      <span id="square-clicked">-</span>
+      <img class="img-anwer hidden" id="img-answer-wrong" src="images/wrong.svg" alt="Wrong Answer!">
+      <h3>Score:</h3>
+      <span id="square-score">-</span>
     </div>
 
   </div>
@@ -259,6 +289,6 @@
 </body>
 
 <footer>
-  Hope you enjoy! Share with your fellows.<br>Created by <a href="https://github.com/reisarthur/cv" target="blank">reisarthur</a>, 2021.
+  Hope you enjoy! Share with your fellows.<br>Created by <a href="https://reisarthur.github.io/cv/" target="blank">reisarthur</a>, 2021.
 </footer>
 </html>
