@@ -1,10 +1,14 @@
-
 var hits = 0;
 var soundOn = true;
 
-$(".button-play-stop").click(function () {
+var timeLimit = 30;
+var timePassed = 0;
+var timeLeft = timeLimit;
+var timerInterval = null;
+
+$(".btn-play-stop").click(function() {
   if ($(this).hasClass("paused")) {
-    resetTimer(30);
+    resetTimer(timeLimit);
   } else {
     startTimer();
     $("#square-random").text(randomSquare);
@@ -12,7 +16,7 @@ $(".button-play-stop").click(function () {
   $(this).toggleClass("paused");
 });
 
-$(".chess-square").click(function () {
+$(".chess-square").click(function() {
   var rndm = $("#square-random").text();
   var click = $(this).attr('id');
   $("#square-clicked").text(click);
@@ -35,27 +39,35 @@ $(".chess-square").click(function () {
   }
 });
 
-$("#btn-squarenames").click(function () {
-    $(".notation").toggleClass('hidden');
-    $(this).text(function(i, text){
-          return text === "Show square names" ? "Hide square names" : "Show square names";
-      })
+$("#btn-timer").click(function() {
+  var time = prompt("Set the time limit (in seconds):", "30");
+  if (isInt(time)) {
+    timeLimit = parseInt(time);
+    resetTimer(timeLimit);
+  }
 });
 
-$("#btn-pieces").click(function () {
-  $(this).text(function(i, text){
+$("#btn-squarenames").click(function() {
+  $(".notation").toggleClass('hidden');
+  $(this).text(function(i, text) {
+    return text === "Show square names" ? "Hide square names" : "Show square names";
+  })
+});
+
+$("#btn-pieces").click(function() {
+  $(this).text(function(i, text) {
     if (text === "Hide pieces") {
-      $(".chess-square").css('background-size','0,0');
+      $(".chess-square").css('background-size', '0,0');
       return "Show pieces";
     } else {
-      $(".chess-square").css('background-size','contain');
+      $(".chess-square").css('background-size', 'contain');
       return "Hide pieces";
     }
   })
 });
 
-$("#btn-sounds").click(function () {
-  $(this).text(function(i, text){
+$("#btn-sounds").click(function() {
+  $(this).text(function(i, text) {
     if (text === "Disable sounds") {
       soundOn = false;
       return "Enable sounds";
@@ -66,15 +78,15 @@ $("#btn-sounds").click(function () {
   })
 });
 
-$("#btn-reverse").click(function () {
-  $(this).text(function(i, text){
+$("#btn-reverse").click(function() {
+  $(this).text(function(i, text) {
     if (text === "White on bottom") {
-      $(".chess-board").css('flex-direction','column');
-      $(".chess-row").css('flex-direction','row');
+      $(".chess-board").css('flex-direction', 'column');
+      $(".chess-row").css('flex-direction', 'row');
       return "Black on bottom";
     } else {
-      $(".chess-board").css('flex-direction','column-reverse');
-      $(".chess-row").css('flex-direction','row-reverse');
+      $(".chess-board").css('flex-direction', 'column-reverse');
+      $(".chess-row").css('flex-direction', 'row-reverse');
       return "White on bottom";
     }
   })
@@ -115,11 +127,6 @@ const COLOR_CODES = {
     threshold: ALERT_THRESHOLD
   }
 };
-
-var TIME_LIMIT = 10;
-var timePassed = 0;
-var timeLeft = TIME_LIMIT;
-var timerInterval = null;
 var remainingPathColor = COLOR_CODES.info.color;
 
 $("#timer").html(`
@@ -157,7 +164,7 @@ function onTimesUp() {
 function startTimer() {
   timerInterval = setInterval(() => {
     timePassed += 1;
-    timeLeft = TIME_LIMIT - timePassed;
+    timeLeft = timeLimit - timePassed;
     $("#base-timer-label").html(formatTime(timeLeft));
     setCircleDasharray();
     setRemainingPathColor(timeLeft);
@@ -178,7 +185,11 @@ function formatTime(time) {
 }
 
 function setRemainingPathColor(timeLeft) {
-  const { alert, warning, info } = COLOR_CODES;
+  const {
+    alert,
+    warning,
+    info
+  } = COLOR_CODES;
   if (timeLeft <= alert.threshold) {
     $("#base-timer-path-remaining").removeClass(COLOR_CODES.info.color);
     $("#base-timer-path-remaining").removeClass(COLOR_CODES.warning.color);
@@ -195,8 +206,8 @@ function setRemainingPathColor(timeLeft) {
 }
 
 function calculateTimeFraction() {
-  const rawTimeFraction = timeLeft / TIME_LIMIT;
-  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+  const rawTimeFraction = timeLeft / timeLimit;
+  return rawTimeFraction - (1 / timeLimit) * (1 - rawTimeFraction);
 }
 
 function setCircleDasharray() {
@@ -214,11 +225,15 @@ function resetTimer(timeReset) {
   $("#square-score").text("-");
   clearInterval(timerInterval);
   timePassed = 0;
-  TIME_LIMIT = timeReset;
+  // timeLimit = timeReset;
   timeLeft = timeReset - timePassed;
-  document.getElementById("base-timer-label").innerHTML = formatTime(
-    timeReset
-  );
+  $("#base-timer-label").html(formatTime(timeLeft));
   setCircleDasharray();
   setRemainingPathColor(timeLeft);
+}
+
+function isInt(value) {
+  return !isNaN(value) &&
+    parseInt(Number(value)) == value &&
+    !isNaN(parseInt(value, 10));
 }

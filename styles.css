@@ -1,3 +1,24 @@
+
+/* Scroll Bar */
+html {
+    overflow-y:scroll;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+/* Main Styles */
 body {
   text-align: center;
   background-color: #3F3E3A;
@@ -13,31 +34,25 @@ a {
   color: white;
 }
 
+/* Layout */
 .main {
   display: flex;
   justify-content: center;
-  margin: 2% 0;
+  margin: 1% 0;
 }
 
 footer {
   margin: 0;
 }
 
-.notation {
-  color: #3F3E3A;
-  font-size: 85%;
-  margin: 3px;
-}
-
 .sidebar-left {
-  /* font-style: italic; */
-  margin: 0 2%;
+  text-align: left;
+  margin: 0 1.5%;
   width: 20%;
 }
 
 .sidebar-right {
-  /* font-style: italic; */
-  margin: 0 2%;
+  margin: 0 1.5%;
   width: 20%;
 }
 
@@ -60,16 +75,27 @@ h3 {
   align-items: center;
 }
 
-.chess-board {
-  /* display: inline-block; */
-  /* position: relative; */
+.img-answer {
+  width: 1em;
+}
 
+.hidden {
+  visibility: hidden;
+}
+
+/* Chessboard Style */
+.notation {
+  color: #3F3E3A;
+  font-size: 85%;
+  margin: 3px;
+}
+
+.chess-board {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* flex-shrink: 0; */
-  width: 50%;
+  width: 48%;
 }
 
 .chess-row {
@@ -80,7 +106,7 @@ h3 {
 }
 
 .chess-square {
-  min-width: 5vw;
+  min-width: 5.5vw;
   width: 12.5%;
   height: 0;
   padding-bottom: 12.5%;
@@ -93,25 +119,6 @@ h3 {
 }
 .light {
   background-color: #F0D9B5;
-}
-
-#img-reset {
-  width: 40px;
-  fill: red !important;
-}
-#img-reset path {
-  fill: blue !important;
-}
-#img-reset:hover {
-  fill: #B58863;
-}
-
-.img-anwer {
-  width: 1em;
-}
-
-.hidden {
-  visibility: hidden;
 }
 
 
@@ -190,8 +197,8 @@ h3 {
   font-size: 2em;
 }
 
-/* Button Play */
-.button-play-stop {
+/* Button Play/Pause */
+.btn-play-stop {
   border: 0;
   background: transparent;
   box-sizing: border-box;
@@ -207,15 +214,15 @@ h3 {
   border-style: solid;
   border-width: 27px 0 27px 45px;
 }
-.button-play-stop.paused {
+.btn-play-stop.paused {
   border-style: double;
   border-width: 0px 0 0px 45px;
 }
-.button-play-stop:hover {
+.btn-play-stop:hover {
   border-color: transparent transparent transparent #B58863;
 }
 
-/* Pieces */
+/* Chess Pieces */
 #a1, #h1 {
   background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wr.png");
 }
