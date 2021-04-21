@@ -1,7 +1,7 @@
 
 /* Scroll Bar */
 html {
-    overflow-y:scroll;
+  overflow-y:scroll;
 }
 
 ::-webkit-scrollbar {
@@ -18,61 +18,64 @@ html {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
+
 /* Main Styles */
 body {
-  text-align: center;
   background-color: #3F3E3A;
   color: white;
   font-family: 'Montserrat', sans-serif;
-}
-
-h1 {
-  margin: 10% 0;
-}
-
-a {
-  color: white;
-}
-
-/* Layout */
-.main {
-  display: flex;
-  justify-content: center;
-  margin: 1% 0;
-}
-
-footer {
-  margin: 0;
+  text-align: center;
 }
 
 .sidebar-left {
   text-align: left;
-  margin: 0 1.5%;
-  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 2% 2% 4%;
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+}
+
+.title-pawn {
+  font-size: 5rem;
+}
+
+hr {
+  border-style: none;
+  border-top-style: dotted;
+  border-color: #B58863;
+  border-width: 0.5rem;
+  margin: 1rem 40%;
+}
+
+ul {
+  margin: 0 0 0 1rem;
+  padding: 0;
+  font-size: 95%;
 }
 
 .sidebar-right {
-  margin: 0 1.5%;
-  width: 20%;
-}
-
-.setting-buttons {
-  margin: 20% 0 3%;
-}
-
-h3 {
-  margin: 1em 0 0.1em;
-}
-
-.sidebar-right span {
-  justify-content: center;
-  margin: 0;
+  font-style: italic;
+  margin: 2%;
 }
 
 .sidebar-timer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sidebar-right h3 {
+  margin: 1em 0 0.1em;
+}
+
+.sidebar-right span {
+  justify-content: center;
+  margin: 0;
 }
 
 .img-answer {
@@ -83,6 +86,89 @@ h3 {
   visibility: hidden;
 }
 
+.setting-buttons {
+  align-self: end;
+  margin: 2% 10%;
+}
+
+footer {
+  margin: 3px;
+}
+
+a {
+  color: white;
+}
+
+/* Grid Layout */
+.main {
+  display: grid;
+  justify-items: center;
+  align-items: stretch;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 50% 50%;
+  margin: 1% 0;
+}
+.sidebar-left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.chess-board {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+}
+.sidebar-right {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+.setting-buttons {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+@media (max-width: 1200px) {
+  .main {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    margin: 1% 0;
+  }
+  .sidebar-left {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+  .chess-board {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  .sidebar-right {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  .setting-buttons {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4  ;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    display: block;
+  }
+  .chessboard{
+    margin: 5px;
+  }
+  .sidebar-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .sidebar-right h3{
+    margin: 3px 0;
+  }
+}
+
+
+
 /* Chessboard Style */
 .notation {
   color: #3F3E3A;
@@ -91,11 +177,11 @@ h3 {
 }
 
 .chess-board {
+  margin: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 48%;
 }
 
 .chess-row {
@@ -106,8 +192,8 @@ h3 {
 }
 
 .chess-square {
-  min-width: 5.5vw;
-  width: 12.5%;
+  width: 5.5vw;
+  min-width: 40px;
   height: 0;
   padding-bottom: 12.5%;
   text-align: left;
@@ -120,6 +206,7 @@ h3 {
 .light {
   background-color: #F0D9B5;
 }
+
 
 
 /* Buttons */
@@ -148,6 +235,35 @@ h3 {
 	position:relative;
 	top:1px;
 }
+
+
+
+/* Button Play/Pause */
+.btn-play-pause {
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 45px;
+  margin: 10px;
+
+  border-color: transparent transparent transparent #F0D9B5;
+  transition: 100ms all ease;
+  cursor: pointer;
+
+  /* play state */
+  border-style: solid;
+  border-width: 27px 0 27px 45px;
+}
+.btn-play-pause.paused {
+  border-style: double;
+  border-width: 0px 0 0px 45px;
+}
+.btn-play-pause:hover {
+  border-color: transparent transparent transparent #B58863;
+}
+
+
 
 /* Timer */
 .base-timer {
@@ -197,30 +313,8 @@ h3 {
   font-size: 2em;
 }
 
-/* Button Play/Pause */
-.btn-play-stop {
-  border: 0;
-  background: transparent;
-  box-sizing: border-box;
-  width: 0;
-  height: 45px;
-  margin: 10px;
 
-  border-color: transparent transparent transparent #F0D9B5;
-  transition: 100ms all ease;
-  cursor: pointer;
 
-  /* play state */
-  border-style: solid;
-  border-width: 27px 0 27px 45px;
-}
-.btn-play-stop.paused {
-  border-style: double;
-  border-width: 0px 0 0px 45px;
-}
-.btn-play-stop:hover {
-  border-color: transparent transparent transparent #B58863;
-}
 
 /* Chess Pieces */
 #a1, #h1 {

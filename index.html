@@ -9,9 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chess Notation Training</title>
 
-  <!-- Bootstrap: CSS only -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
-
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -43,16 +40,28 @@
   <div class="main">
 
     <div class="sidebar-left">
-      <h1 id="title">Chess Notation Training</h1>
-      <p>The Algebraic Notation is the standard method for recording and describing moves in a game of chess.</p>
-      <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)" target="_blank" class="myButton" id="btn-wiki">Wikipedia Article</a>
-      <h2 id="subtitle">Naming the Squares</h2>
-      <p>Each chessboard square is identified by a unique coordinate pair, from the White's point of view:</p>
-      <ul>
-        <li>Rows are named 1 to 8 from bottom to top.</li>
-        <li>Columns are named <em>a</em> to <em>h</em> from left to right.</li>
-      </ul>
-      <p>Find correctly the max number of squares before the time runs out and <b>become a pro</b> chess player.</p>
+
+      <div class="sidebar-definition">
+        <div class="title">
+          <span class="title-pawn">♙</span>
+          <h1 id="title">Chess Notation Training</h1>
+        </div>
+        <p>The Algebraic Notation is the standard method for recording and describing moves in a game of chess.</p>
+        <center>
+          <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)" target="_blank" class="myButton" id="btn-wiki">Wikipedia Article</a>
+        </center>
+      </div>
+      <hr>
+      <div class="sidebar-instructions">
+        <h2 id="subtitle">Naming the Squares</h2>
+        <p>Each chessboard square is identified by a unique coordinate pair, from the White's point of view:</p>
+        <ul>
+          <li>Rows are named 1 to 8 from bottom to top.</li>
+          <li>Columns are named <em>a</em> to <em>h</em> from left to right.</li>
+        </ul>
+        <p>Find correctly the max number of squares before the time runs out and <b>become a pro</b> chess player.</p>
+      </div>
+
     </div>
 
     <div class="chess-board">
@@ -274,11 +283,11 @@
     </div>
 
     <div class="sidebar-right">
-      <div class="sidebar-right-game">
-        <div class="sidebar-timer">
-          <div id="timer"></div>
-          <button class="btn-play-stop" name="button-play"></button>
-        </div>
+      <div class="sidebar-timer">
+        <div id="timer"></div>
+        <button class="btn-play-pause" name="button-play-pause"></button>
+      </div>
+      <div class="sidebar-game">
         <h3>Next:</h3>
         <span id="square-random">-</span>
         <h3>Clicked:</h3>
@@ -288,22 +297,19 @@
         <h3>Score:</h3>
         <span id="square-score">-</span>
       </div>
+    </div>
 
-      <div class="setting-buttons">
-        <h3>Settings:</h3>
-        <a href="#" class="myButton" id="btn-squarenames">Hide square names</a>
-        <a href="#" class="myButton" id="btn-reverse">Black on bottom</a>
-        <a href="#" class="myButton" id="btn-sounds">Disable sounds</a>
-        <a href="#" class="myButton" id="btn-timer">Set time limit</a>
-        <a href="#" class="myButton" id="btn-pieces">Hide pieces</a>
-      </div>
-
+    <div class="setting-buttons">
+      <h3>Settings:</h3>
+      <a href="#" class="myButton" id="btn-squarenames">Hide square names</a>
+      <a href="#" class="myButton" id="btn-reverse">Black on bottom</a>
+      <a href="#" class="myButton" id="btn-sounds">Disable sounds</a>
+      <a href="#" class="myButton" id="btn-timer">Set time limit</a>
+      <a href="#" class="myButton" id="btn-pieces">Hide pieces</a>
     </div>
 
   </div>
 
-  <!-- JavaScript Bundle with Popper -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="game.js" charset="utf-8"></script>
 

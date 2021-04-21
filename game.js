@@ -1,3 +1,6 @@
+// created by reisarthur
+
+// Variables:
 var hits = 0;
 var soundOn = true;
 
@@ -6,7 +9,13 @@ var timePassed = 0;
 var timeLeft = timeLimit;
 var timerInterval = null;
 
-$(".btn-play-stop").click(function() {
+
+// ===============
+// Game Buttons:
+// ===============
+
+// Play/Pause Button:
+$(".btn-play-pause").click(function() {
   if ($(this).hasClass("paused")) {
     resetTimer(timeLimit);
   } else {
@@ -16,6 +25,7 @@ $(".btn-play-stop").click(function() {
   $(this).toggleClass("paused");
 });
 
+// Click on Chessboard:
 $(".chess-square").click(function() {
   var rndm = $("#square-random").text();
   var click = $(this).attr('id');
@@ -39,6 +49,12 @@ $(".chess-square").click(function() {
   }
 });
 
+
+// ===============
+// Setting Buttons:
+// ===============
+
+// Set Timer:
 $("#btn-timer").click(function() {
   var time = prompt("Set the time limit (in seconds):", "30");
   if (isInt(time)) {
@@ -47,6 +63,7 @@ $("#btn-timer").click(function() {
   }
 });
 
+// Display Square Names:
 $("#btn-squarenames").click(function() {
   $(".notation").toggleClass('hidden');
   $(this).text(function(i, text) {
@@ -54,6 +71,7 @@ $("#btn-squarenames").click(function() {
   })
 });
 
+// Display Pieces:
 $("#btn-pieces").click(function() {
   $(this).text(function(i, text) {
     if (text === "Hide pieces") {
@@ -66,6 +84,7 @@ $("#btn-pieces").click(function() {
   })
 });
 
+// Play Sounds:
 $("#btn-sounds").click(function() {
   $(this).text(function(i, text) {
     if (text === "Disable sounds") {
@@ -78,6 +97,7 @@ $("#btn-sounds").click(function() {
   })
 });
 
+// Reverse Chessboard:
 $("#btn-reverse").click(function() {
   $(this).text(function(i, text) {
     if (text === "White on bottom") {
@@ -93,6 +113,12 @@ $("#btn-reverse").click(function() {
 });
 
 
+
+// ===============
+// Aux Functions
+// ===============
+
+// Return a random square, e.g 'b3':
 function randomSquare() {
   var randomNumber = Math.floor(Math.random() * 64);
   var col = Math.floor(randomNumber / 8);
@@ -101,13 +127,24 @@ function randomSquare() {
   return square;
 }
 
+// Play sound:
 function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
 }
 
+// Check if value is integer:
+function isInt(value) {
+  return !isNaN(value) &&
+    parseInt(Number(value)) == value &&
+    !isNaN(parseInt(value, 10));
+}
 
 
+
+// ===============
+// Timer Functions:
+// ===============
 // Credit: Mateusz Rybczonec
 
 const FULL_DASH_ARRAY = 283;
@@ -152,8 +189,6 @@ $("#timer").html(`
   )}</span>
 </div>
 `);
-
-// startTimer();
 
 function onTimesUp() {
   $("#square-random").text("-");
@@ -230,10 +265,4 @@ function resetTimer(timeReset) {
   $("#base-timer-label").html(formatTime(timeLeft));
   setCircleDasharray();
   setRemainingPathColor(timeLeft);
-}
-
-function isInt(value) {
-  return !isNaN(value) &&
-    parseInt(Number(value)) == value &&
-    !isNaN(parseInt(value, 10));
 }
