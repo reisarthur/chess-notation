@@ -18,8 +18,10 @@ var timerInterval = null;
 $(".btn-play-pause").click(function() {
   if ($(this).hasClass("paused")) {
     resetTimer(timeLimit);
+    playSound("https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/game-end.mp3");
   } else {
     startTimer();
+    playSound("https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/game-start.mp3");
     $("#square-random").text(randomSquare);
   }
   $(this).toggleClass("paused");
@@ -36,13 +38,13 @@ $(".chess-square").click(function() {
       $("#img-answer-wrong").addClass("hidden");
     } else if (click === rndm) { //acertou!
       hits++;
-      playSound("right");
+      playSound("https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/move-self.mp3");
       $("#square-random").text(randomSquare);
       $("#img-answer-right").removeClass("hidden");
       $("#img-answer-wrong").addClass("hidden");
     } else { //errou!
       resetTimer(0);
-      playSound("wrong");
+      playSound("https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/illegal.mp3");
       $("#img-answer-right").addClass("hidden");
       $("#img-answer-wrong").removeClass("hidden");
     }
@@ -129,7 +131,7 @@ function randomSquare() {
 
 // Play sound:
 function playSound(name) {
-  var audio = new Audio("sounds/" + name + ".mp3");
+  var audio = new Audio(name);
   audio.play();
 }
 
@@ -203,8 +205,11 @@ function startTimer() {
     $("#base-timer-label").html(formatTime(timeLeft));
     setCircleDasharray();
     setRemainingPathColor(timeLeft);
-
+    if (timeLeft === 10) {
+      playSound("https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/tenseconds.mp3");
+    }
     if (timeLeft === 0) {
+      playSound("https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/game-end.mp3");
       onTimesUp();
     }
   }, 1000);
