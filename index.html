@@ -2,35 +2,38 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="Do you know how to name the squares in a chessboard? Train your skill and become a pro chess player">
-  <meta name="keywords" content="chess, chessboard, naming squares">
-  <meta name="author" content="Arthur Reis">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chess Notation Training</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Do you know how to name the squares in a chessboard? Train your skill and become a pro chess player">
+    <meta name="keywords" content="chess, chessboard, naming squares">
+    <meta name="author" content="Arthur Reis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <title>Chess Notation Training</title>
 
-  <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wp.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wn.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wb.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wr.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wq.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wk.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bp.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bn.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bb.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/br.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bq.png" as="image">
-  <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bk.png" as="image">
-  <link rel="preload" href="images/wrong.svg" as="image">
-  <link rel="preload" href="images/right.svg" as="image">
-  <!-- <link rel="preload" href="sounds/wrong.mp3" as="audio">
-  <link rel="preload" href="sounds/right.mp3" as="audio"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wp.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wn.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wb.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wr.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wq.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/wk.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bp.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bn.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bb.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/br.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bq.png" as="image">
+    <link rel="preload" href="https://images.chesscomfiles.com/chess-themes/pieces/classic/150/bk.png" as="image">
+    <link rel="preload" href="images/wrong.svg" as="image">
+    <link rel="preload" href="images/right.svg" as="image">
+    <!-- <link rel="preload" href="sounds/wrong.mp3" as="audio">
+    <link rel="preload" href="sounds/right.mp3" as="audio"> -->
 </head>
 
 <body>
@@ -46,7 +49,9 @@
           <span class="title-pawn">♙</span>
           <h1 id="title">Chess Notation Training</h1>
         </div>
-        <p>The Algebraic Notation is the standard method for recording and describing moves in a game of chess.</p>
+        <p id="description1">
+          The Algebraic Notation is the standard method for recording and describing moves in a game of chess.
+        </p>
         <center>
           <a href="https://en.wikipedia.org/wiki/Algebraic_notation_(chess)" target="_blank" class="myButton" id="btn-wiki">Wikipedia Article</a>
         </center>
@@ -56,12 +61,14 @@
       
       <div class="sidebar-instructions">
         <h2 id="subtitle">Naming the Squares</h2>
-        <p>Each chessboard square is identified by a unique coordinate pair, from the White's point of view:</p>
-        <ul>
-          <li>Rows are named 1 to 8 from bottom to top.</li>
-          <li>Columns are named <em>a</em> to <em>h</em> from left to right.</li>
-        </ul>
-        <p>Find correctly the max number of squares before the time runs out and <b>become a pro</b> chess player.</p>
+        <div id="description2">
+            <p>Each chessboard square is identified by a unique coordinate pair, from the White's point of view:</p>
+            <ul>
+                <li>Rows are named 1 to 8 from bottom to top.</li>
+                <li>Columns are named <em>a</em> to <em>h</em> from left to right.</li>
+            </ul>
+            <p>Find correctly the max number of squares before the time runs out and <b>become a pro</b> chess player.</p>
+        </div>
       </div>
 
     </div>
@@ -290,24 +297,27 @@
         <button class="btn-play-pause" name="button-play-pause"></button>
       </div>
       <div class="sidebar-game">
-        <h3>Next:</h3>
+        <h3 id="next">Next:</h3>
         <span id="square-random">-</span>
-        <h3>Clicked:</h3>
+        <h3 id="clicked">Clicked:</h3>
         <img class="img-answer hidden" id="img-answer-right" src="images/right.svg" alt="Right Answer!">
         <span id="square-clicked">-</span>
         <img class="img-answer hidden" id="img-answer-wrong" src="images/wrong.svg" alt="Wrong Answer!">
-        <h3>Score:</h3>
+        <h3 id="score">Score:</h3>
         <span id="square-score">-</span>
       </div>
     </div>
 
     <div class="setting-buttons">
-      <h3>Settings:</h3>
-      <a href="#" class="myButton" id="btn-squarenames">Hide square names</a>
-      <a href="#" class="myButton" id="btn-reverse">Black on bottom</a>
-      <a href="#" class="myButton" id="btn-sounds">Disable sounds</a>
-      <a href="#" class="myButton" id="btn-timer">Set time limit</a>
-      <a href="#" class="myButton" id="btn-pieces">Hide pieces</a>
+        <h3 id="settings">Settings:</h3>
+        <a href="#" class="myButton" id="btn-squarenames">Hide square names</a>
+        <a href="#" class="myButton" id="btn-reverse">Black on bottom</a>
+        <a href="#" class="myButton" id="btn-sounds">Disable sounds</a>
+        <a href="#" class="myButton" id="btn-timer">Set time limit</a>
+        <a href="#" class="myButton" id="btn-pieces">Hide pieces</a>
+        <br />
+        <a href="#" class="flags" id="flag-br" onclick="setLanguage('pt')"><img src="images/br.png" alt="BR flag"></a>
+        <a href="#" class="flags" id="flag-uk" onclick="setLanguage('en')"><img src="images/uk.png" alt="UK flag"></a>
     </div>
 
   </div>
@@ -326,6 +336,8 @@
 </body>
 
 <footer>
-  Hope you enjoy! Share with your fellows.<br>Created by <a href="https://reisarthur.github.io/cv/" target="blank">reisarthur</a> ♔, 2021.
+    <div id="footer1">Hope you enjoy! Share with your fellows.</div>
+    <div id="footer2">Created by <a href="https://reisarthur.github.io/cv/" target="blank">reisarthur</a> ♔, 2021.</div>
 </footer>
+
 </html>

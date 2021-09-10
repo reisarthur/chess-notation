@@ -2,7 +2,10 @@
 
 // Variables:
 var hits = 0;
-var soundOn = true;
+var soundsOn = true;
+var squarenames = true;
+var pieces = true;
+var reverse = true;
 
 var timeLimit = 30;
 var timePassed = 0;
@@ -32,7 +35,7 @@ $(".chess-square").click(function() {
   var rndm = $("#square-random").text();
   var click = $(this).attr('id');
   $("#square-clicked").text(click);
-  if (soundOn) {
+  if (soundsOn) {
     if (rndm === "-") {
       $("#img-answer-right").addClass("hidden");
       $("#img-answer-wrong").addClass("hidden");
@@ -57,8 +60,9 @@ $(".chess-square").click(function() {
 // ===============
 
 // Set Timer:
-$("#btn-timer").click(function() {
-  var time = prompt("Set the time limit (in seconds):", "30");
+$("#btn-timer").click(function () {
+    //var time = prompt("Set the time limit (in seconds):", "30");
+    var time = prompt(language.prompttimer, "30");
   if (isInt(time)) {
     timeLimit = parseInt(time);
     resetTimer(timeLimit);
@@ -67,51 +71,69 @@ $("#btn-timer").click(function() {
 
 // Display Square Names:
 $("#btn-squarenames").click(function() {
-  $(".notation").toggleClass('hidden');
-  $(this).text(function(i, text) {
-    return text === "Show square names" ? "Hide square names" : "Show square names";
-  })
+    $(".notation").toggleClass('hidden');
+    if (squarenames) {
+        squarenames = false;
+        $(this).text(function (i, text) {
+            return language.btnsquarenamesoff;
+        })
+    } else {
+        squarenames = true;
+        $(this).text(function (i, text) {
+            return language.btnsquarenameson;
+        })
+    }
 });
 
 // Display Pieces:
 $("#btn-pieces").click(function() {
-  $(this).text(function(i, text) {
-    if (text === "Hide pieces") {
-      $(".chess-square").css('background-size', '0,0');
-      return "Show pieces";
+    if (pieces) {
+        pieces = false;
+        $(this).text(function (i, text) {
+            $(".chess-square").css('background-size', '0,0');
+            return language.btnpiecesoff;
+        })
     } else {
-      $(".chess-square").css('background-size', 'contain');
-      return "Hide pieces";
+        pieces = true;
+        $(this).text(function (i, text) {
+            $(".chess-square").css('background-size', 'contain');
+            return language.btnpieceson;
+        })
     }
-  })
 });
 
 // Play Sounds:
 $("#btn-sounds").click(function() {
-  $(this).text(function(i, text) {
-    if (text === "Disable sounds") {
-      soundOn = false;
-      return "Enable sounds";
+    if (soundsOn) {
+        soundsOn = false;
+        $(this).text(function (i, text) {
+            return language.btnsoundsoff;
+        })
     } else {
-      soundOn = true;
-      return "Disable sounds";
+        soundsOn = true;
+        $(this).text(function (i, text) {
+            return language.btnsoundson;
+        })
     }
-  })
 });
 
 // Reverse Chessboard:
 $("#btn-reverse").click(function() {
-  $(this).text(function(i, text) {
-    if (text === "White on bottom") {
-      $(".chess-board").css('flex-direction', 'column');
-      $(".chess-row").css('flex-direction', 'row');
-      return "Black on bottom";
+    if (reverse) {
+        reverse = false;
+        $(".chess-board").css('flex-direction', 'column-reverse');
+        $(".chess-row").css('flex-direction', 'row-reverse');
+        $(this).text(function (i, text) {
+            return language.btnreverseoff;
+        })
     } else {
-      $(".chess-board").css('flex-direction', 'column-reverse');
-      $(".chess-row").css('flex-direction', 'row-reverse');
-      return "White on bottom";
+        reverse = true;
+        $(".chess-board").css('flex-direction', 'column');
+        $(".chess-row").css('flex-direction', 'row');
+        $(this).text(function (i, text) {
+            return language.btnreverseon;
+        })
     }
-  })
 });
 
 
@@ -271,3 +293,88 @@ function resetTimer(timeReset) {
   setCircleDasharray();
   setRemainingPathColor(timeLeft);
 }
+
+
+//Language Selection:
+var pt = {
+    "title": "Treino de Notações de Xadrez",
+    "description1": "A Notação Algébrica é o método padrão de registrar e descrever os movimentos de um jogo de xadrez.",
+    "btnwiki": "Artigo na Wikipedia",
+    "subtitle": "Nomeando as Casas",
+    "description2": "<p>Cada casa do tabuleiro de xadrez é identificada por um par de coordenadas único. Pelo ponto de vista das peças brancas:</p><ul><li>Linhas são nomeadas <em>1</em> a <em>8</em> de baixo para cima.</li><li>Colunas são nomeadas <em>a</em> to <em>h</em> da esquerda para a direita.</li></ul><p>Encontre corretamente o máximo número de casas antes que o tempo acabe e <b>se torne um jogador profissional de xadrez</b>.</p>",
+    "next": "Próximo:",
+    "clicked": "Clicado:",
+    "score": "Pontuação:",
+    "settings": "Configurações:",
+    "btnsquarenameson": "Esconder nome das casas",
+    "btnsquarenamesoff": "Mostrar nome das casas",
+    "btnreverseon": "Pretas embaixo",
+    "btnreverseoff": "Brancas embaixo",
+    "btnsoundson": "Desligar sons",
+    "btnsoundsoff": "Ligar sons",
+    "btntimer": "Alterar tempo",
+    "btnpieceson": "Esconder peças",
+    "btnpiecesoff": "Mostrar peças",
+    "prompttimer": "Alterar limite de tempo (em segundos):",
+    "footer1": "Espero que curta! Compartilhe com seus parceiros.",
+    "footer2": "Criado por <a href=\"https://reisarthur.github.io/cv/\" target=\"blank\">reisarthur</a> ♔, 2021."
+};
+var en = {
+    "title": "Chess Notation Training",
+    "description1": "The Algebraic Notation is the standard method for recording and describing moves in a game of chess.",
+    "btnwiki": "Wikipedia Article",
+    "subtitle": "Naming the Squares",
+    "description2": "<p>Each chessboard square is identified by a unique coordinate pair, from the White's point of view:</p><ul><li> Rows are named <em>1</em> to <em>8</em> from bottom to top.</li><li>Columns are named <em>a</em> to <em>h</em> from left to right.</li></ul><p>Find correctly the max number of squares before the time runs out and <b>become a pro</b> chess player.</p>",
+    "next": "Next:",
+    "clicked": "Clicked:",
+    "score": "Score:",
+    "settings": "Settings:",
+    "btnsquarenameson": "Hide square names",
+    "btnsquarenamesoff": "Show square names",
+    "btnreverseon": "Black on bottom",
+    "btnreverseoff": "White on bottom",
+    "btnsoundson": "Disable sounds",
+    "btnsoundsoff": "Enable sounds",
+    "btntimer": "Set time limit",
+    "btnpieceson": "Hide pieces",
+    "btnpiecesoff": "Show pieces",
+    "prompttimer": "Set the time limit (in seconds):",
+    "footer1": "Hope you enjoy! Share with your fellows.",
+    "footer2": "Created by <a href=\"https://reisarthur.github.io/cv/\" target=\"blank\">reisarthur</a> ♔, 2021."
+}
+var language = pt;
+
+function setLanguage(lang) {
+    switch (lang) {
+        case 'en':
+            language = en;
+            break;
+        case 'pt':
+            language = pt;
+            break;
+    }
+    $(document).ready(function () {
+        $('#title').text(language.title);
+        $('#btn-wiki').text(language.btnwiki);
+        $('#subtitle').text(language.subtitle);
+        $('#description1').text(language.description1);
+        $('#description2').html(language.description2);
+        $('#next').text(language.next);
+        $('#clicked').text(language.clicked);
+        $('#score').text(language.score);
+        $('#settings').text(language.settings);
+        if (squarenames) $('#btn-squarenames').text(language.btnsquarenameson);
+        else $('#btn-squarenames').text(language.btnsquarenamesoff);
+        if (reverse) $('#btn-reverse').text(language.btnreverseon);
+        else $('#btn-reverse').text(language.btnreverseoff);
+        if (soundsOn) $('#btn-sounds').text(language.btnsoundson);
+        else $('#btn-sounds').text(language.btnsoundsoff);
+        $('#btn-timer').text(language.btntimer);
+        if (pieces) $('#btn-pieces').text(language.btnpieceson);
+        else $('#btn-pieces').text(language.btnpiecesoff);
+        $('#footer1').html(language.footer1);
+        $('#footer2').html(language.footer2);
+    });
+}
+
+setLanguage('pt');
