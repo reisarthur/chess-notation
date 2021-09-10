@@ -300,8 +300,9 @@ var pt = {
     "title": "Treino de Notações de Xadrez",
     "description1": "A Notação Algébrica é o método padrão de registrar e descrever os movimentos de um jogo de xadrez.",
     "btnwiki": "Artigo na Wikipedia",
+    "wikilink": "https://pt.wikipedia.org/wiki/Nota%C3%A7%C3%A3o_alg%C3%A9brica_de_xadrez",
     "subtitle": "Nomeando as Casas",
-    "description2": "<p>Cada casa do tabuleiro de xadrez é identificada por um par de coordenadas único. Pelo ponto de vista das peças brancas:</p><ul><li>Linhas são nomeadas <em>1</em> a <em>8</em> de baixo para cima.</li><li>Colunas são nomeadas <em>a</em> to <em>h</em> da esquerda para a direita.</li></ul><p>Encontre corretamente o máximo número de casas antes que o tempo acabe e <b>se torne um jogador profissional de xadrez</b>.</p>",
+    "description2": "<p>Cada casa do tabuleiro de xadrez é identificada por um par de coordenadas único. Pelo ponto de vista das peças brancas:</p><ul><li>Linhas são nomeadas <em>1</em> até <em>8</em> de baixo para cima.</li><li>Colunas são nomeadas <em>a</em> até <em>h</em> da esquerda para a direita.</li></ul><p>Encontre corretamente o máximo número de casas antes que o tempo acabe e <b>se torne um jogador profissional de xadrez</b>.</p>",
     "next": "Próximo:",
     "clicked": "Clicado:",
     "score": "Pontuação:",
@@ -323,6 +324,7 @@ var en = {
     "title": "Chess Notation Training",
     "description1": "The Algebraic Notation is the standard method for recording and describing moves in a game of chess.",
     "btnwiki": "Wikipedia Article",
+    "wikilink": "https://en.wikipedia.org/wiki/Algebraic_notation_(chess)",
     "subtitle": "Naming the Squares",
     "description2": "<p>Each chessboard square is identified by a unique coordinate pair, from the White's point of view:</p><ul><li> Rows are named <em>1</em> to <em>8</em> from bottom to top.</li><li>Columns are named <em>a</em> to <em>h</em> from left to right.</li></ul><p>Find correctly the max number of squares before the time runs out and <b>become a pro</b> chess player.</p>",
     "next": "Next:",
@@ -356,6 +358,7 @@ function setLanguage(lang) {
     $(document).ready(function () {
         $('#title').text(language.title);
         $('#btn-wiki').text(language.btnwiki);
+        $('#btn-wiki').attr("href", language.wikilink);
         $('#subtitle').text(language.subtitle);
         $('#description1').text(language.description1);
         $('#description2').html(language.description2);
