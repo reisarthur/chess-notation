@@ -41,6 +41,7 @@ $(".chess-square").click(function() {
       $("#img-answer-wrong").addClass("hidden");
     } else if (click === rndm) { //acertou!
       hits++;
+      $("#square-score").text(hits);
       playSound("https://images.chesscomfiles.com/chess-themes/sounds/_MP3_/default/move-self.mp3");
       $("#square-random").text(randomSquare);
       $("#img-answer-right").removeClass("hidden");
@@ -282,9 +283,9 @@ function setCircleDasharray() {
 }
 
 function resetTimer(timeReset) {
+  $("#square-score").text(hits);
   hits = 0;
   $("#square-random").text("-");
-  $("#square-score").text("-");
   clearInterval(timerInterval);
   timePassed = 0;
   // timeLimit = timeReset;

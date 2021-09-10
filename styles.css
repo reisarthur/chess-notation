@@ -235,6 +235,15 @@ a {
 	position:relative;
 	top:1px;
 }
+#square-random {
+    font-style: normal;
+}
+#square-clicked {
+    font-style: normal;
+}
+#square-score {
+    font-style: normal;
+}
 
 
 
